@@ -1,10 +1,20 @@
 import { useEffect } from "react";
-import useMovie from "../hooks/useMovie";
-import Error from "./Error";
-import Loadding from "./Loadding";
 
-function SelectedMovie({ clearSelectedId, selectedId, children }) {
-  const { isLoading, error, movie } = useMovie(selectedId);
+import { useMovie } from "../contexts/MovieContext";
+import Loadding from "./Loadding";
+import Error from "./Error";
+
+const SelectedMovie = ({ children }) => {
+  const { isLoading, error, movie, setSelectedId } = useMovie();
+
+  useEffect(() => {
+    document.title = movie?.Title;
+
+    return () => (document.title = "PopCorn");
+  }, [movie?.Title]);
+
+  if (isLoading || !movie) return <Loadding />;
+  if (error) return <Error message={error} />;
 
   const {
     Title: title,
@@ -17,29 +27,21 @@ function SelectedMovie({ clearSelectedId, selectedId, children }) {
     Genre: genre,
   } = movie;
 
-  useEffect(() => {
-    document.title = title;
-
-    return () => (document.title = "PopCorn");
-  }, [title]);
-
-  if (isLoading) return <Loadding />;
-  if (error) return <Error message={error} />;
   return (
-    <div className='details'>
+    <div className="details">
       <header>
-        <button className='btn-back' onClick={clearSelectedId}>
+        <button className="btn-back" onClick={() => setSelectedId(null)}>
           &larr;
         </button>
 
         <img src={poster} alt={`Poster of ${movie} movie`} />
 
-        <div className='details-overview'>
+        <div className="details-overview">
           <h2>{title}</h2>
+          <p>{genre}</p>
           <p>
             {released} &bull; {runtime}
           </p>
-          <p>{genre}</p>
           <p>
             <span>⭐️</span>
             {imdbRating} IMDb rating
@@ -53,6 +55,6 @@ function SelectedMovie({ clearSelectedId, selectedId, children }) {
       <p>Directed by: {director}</p>
     </div>
   );
-}
+};
 
 export default SelectedMovie;

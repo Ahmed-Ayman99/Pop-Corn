@@ -11,7 +11,7 @@
 }
 
 ::selection {
-  background-color:#fcc419;
+  background-color: #fcc419;
   color: var(--color-primary);
 }
 
@@ -105,7 +105,6 @@ body {
   justify-content: center;
 }
 
-
 .main-nav .popcorn {
   font-size: 3.2rem;
 }
@@ -171,8 +170,6 @@ body {
   background: #555;
 }
 
-
-
 .toggle {
   position: absolute;
   top: 0.8rem;
@@ -191,13 +188,13 @@ body {
   z-index: 999;
 }
 
-.list{
+.list {
   list-style: none;
   overflow: auto;
   padding: 0.8rem 0;
 }
 
-.list-movies li{
+.list-movies li {
   display: grid;
   grid-template-columns: 4rem 1fr;
   grid-template-rows: auto auto;
@@ -209,15 +206,15 @@ body {
   position: relative;
 }
 
-.list-movies li.active{
-  background-color: var(--color-background-100);
-} 
-
-.list-movies li:hover{
+.list-movies li.active {
   background-color: var(--color-background-100);
 }
 
-.list img{
+.list-movies li:hover {
+  background-color: var(--color-background-100);
+}
+
+.list img {
   width: 100%;
   grid-row: 1/-1;
 }
@@ -230,7 +227,7 @@ body {
   display: flex;
   align-items: center;
   gap: 2.4rem;
-justify-content: space-between;
+  justify-content: space-between;
 }
 
 .list p {
@@ -239,7 +236,7 @@ justify-content: space-between;
   gap: 0.8rem;
 }
 
-.search-placeholder{
+.search-placeholder {
   padding: 2.4rem;
   text-align: center;
   font-size: 2.4rem;
@@ -247,46 +244,47 @@ justify-content: space-between;
 }
 
 /***************** Box-2 *****************/
-.summary{
+.summary {
   padding: 2.2rem 3.2rem 1.8rem 3.2rem;
-  border-radius: .9rem;
+  border-radius: 0.9rem;
   background-color: var(--color-background-100);
-  box-shadow: 0 1.2rem 2.4rem rgba(0,0, 0,.2);
+  box-shadow: 0 1.2rem 2.4rem rgba(0, 0, 0, 0.2);
 }
 
-.summary h3{
+.summary h3 {
   text-transform: uppercase;
   font-size: 1.6rem;
   margin-bottom: 1.6rem;
 }
 
 .summary .stats p,
-.summary .stats{
+.summary .stats {
   display: flex;
   align-items: center;
-  justify-content: space-between ;
+  justify-content: space-between;
 }
 
-.summary .stats p{
-  gap:.4rem ;
+.summary .stats p {
+  gap: 0.4rem;
 }
 
-.summary .stats{
+.summary .stats {
   font-size: 1.6rem;
   font-weight: 600;
 }
 
-.summary .stats svg{
+.summary .stats svg {
   color: #fcc419;
 }
 
 /* Watched-List */
-.watched-list li{
+.watched-list li {
+  cursor: pointer;
   display: grid;
-  grid-template-columns:4rem auto ;
+  grid-template-columns: 4rem auto;
   padding: 1.6rem 3.2rem;
   background-color: var(--color-background-100);
-  column-gap:2.4rem ;
+  column-gap: 2.4rem;
   align-items: center;
   border-bottom: 1px solid var(--color-background-900);
   font-size: 1.6rem;
@@ -294,11 +292,11 @@ justify-content: space-between;
   position: relative;
 }
 
-.watched-list li svg{
+.watched-list li svg {
   color: #fcc419;
 }
 
-.red-icon{
+.red-icon {
   color: red !important;
   cursor: pointer;
 }
@@ -332,7 +330,7 @@ justify-content: space-between;
   display: flex;
   align-items: center;
   justify-content: center;
-} 
+}
 
 .details section {
   padding: 4rem;
@@ -366,42 +364,42 @@ justify-content: space-between;
   gap: 0.8rem;
 }
 
-.rating-section{
+.rating-section {
   padding: 4rem;
 }
 
-.rating-overview{
+.rating-overview {
   background-color: var(--color-background-100);
-  border-radius:.9rem ;
-  margin-bottom: .8rem;
+  border-radius: 0.9rem;
+  margin-bottom: 0.8rem;
   padding: 2rem 2.4rem;
   font-weight: 600;
 }
 
-.rating-overview .ratings{
+.rating-overview .ratings {
   display: flex;
   align-items: center;
   gap: 16px;
   margin-bottom: 2.4rem;
 }
 
-.rating-overview .stars{
+.rating-overview .stars {
   display: flex;
   align-items: center;
 }
 
-.rating-overview svg{
-    width: 2.6rem;
-    height: 2.6rem;
-    cursor: pointer;
-    stroke:  #fcc419;
+.rating-overview svg {
+  width: 2.6rem;
+  height: 2.6rem;
+  cursor: pointer;
+  stroke: #fcc419;
 }
 
-.rating-overview .rating{
-    line-height: 1;
-    margin: 0px;
-    color: #fcc419;
-    font-size: 2rem;
+.rating-overview .rating {
+  line-height: 1;
+  margin: 0px;
+  color: #fcc419;
+  font-size: 2rem;
 }
 
 .btn-add {
@@ -422,7 +420,7 @@ justify-content: space-between;
 }
 
 /************ Footer  ************/
-.main-footer{
+.main-footer {
   color: #fff;
   margin-top: 1.2rem;
   font-size: 1.6rem;
@@ -431,18 +429,15 @@ justify-content: space-between;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: .4rem;
+  gap: 0.4rem;
 }
 
-.author{
-color: var(--color-primary);
-transition: .3s;
+.author {
+  color: var(--color-primary);
+  transition: 0.3s;
 }
 
-
-.author:hover{
-color: var(--color-primary-light);
-transform:scale(1.1) ;
+.author:hover {
+  color: var(--color-primary-light);
+  transform: scale(1.1);
 }
-
-

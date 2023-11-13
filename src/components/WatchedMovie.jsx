@@ -1,43 +1,52 @@
-import { BsHourglassSplit } from 'react-icons/bs'
-import { HiStar } from 'react-icons/hi2'
-import {  AiFillCloseCircle } from "react-icons/ai";
+import { BsHourglassSplit } from "react-icons/bs";
+import { AiFillCloseCircle } from "react-icons/ai";
+import { HiStar } from "react-icons/hi2";
 
-const WatchedMovie = ({movie,onDeleteMovie})=> {
-    const {
-      imdbID:movieId,
-      Title:title,
-      Poster:poster,
-      runtime,
-      imdbRating,
-      userRating
+import { useMovies } from "../contexts/MoviesContext";
+import StatsItem from "./StatsItem";
 
-    } = movie
-    
+const WatchedMovie = ({ movie }) => {
+  const {
+    imdbID: movieId,
+    Title: title,
+    Poster: poster,
+    runtime,
+    imdbRating,
+    userRating,
+  } = movie;
+
+  const { setWatchedMovies } = useMovies();
+
+  const handleDeleteMovie = () => {
+    setWatchedMovies((prev) =>
+      prev.filter((movie) => movie.imdbID !== movieId)
+    );
+  };
+
   return (
     <li>
       <img src={poster} alt={title} />
       <h3>{title}</h3>
+
       <div>
-      <p>
-        <span><HiStar/></span>
-        <span>{imdbRating}</span>
-      </p>
+        <StatsItem label={imdbRating}>
+          <HiStar />
+        </StatsItem>
 
-      <p>
-        <span><HiStar/></span>
-        <span>{userRating}</span>
-      </p>
+        <StatsItem label={userRating}>
+          <HiStar />
+        </StatsItem>
 
-      <p>
-        <span><BsHourglassSplit/></span>
-        <span>{runtime}</span>
-      </p>
-      <p>
-        <AiFillCloseCircle onClick={()=>onDeleteMovie(movieId)} className='red-icon'/>
-      </p>
+        <StatsItem label={runtime}>
+          <BsHourglassSplit />
+        </StatsItem>
+
+        <StatsItem>
+          <AiFillCloseCircle onClick={handleDeleteMovie} className="red-icon" />
+        </StatsItem>
       </div>
     </li>
-  )
-}
+  );
+};
 
-export default WatchedMovie
+export default WatchedMovie;
